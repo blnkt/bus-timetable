@@ -1,0 +1,15 @@
+<h1><%=@station.name%> Station</h1>
+
+<ul>
+<% @station.lines.each do |line| %>
+  <li><%= link_to line.name, line_path(line), :class=> "btn btn-default btn-xs" %></li>
+<%end%>
+</ul>
+
+<p><%= link_to "Edit", edit_station_path(@station), :class => "btn btn-default" %></p>
+<p><%= link_to "Delete", station_path(@station),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"},
+                         :class => "btn btn-danger" %></p>
+
+<%= link_to "Stations", stations_path, :class=> "btn btn-default" %>

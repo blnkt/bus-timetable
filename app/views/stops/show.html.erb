@@ -1,0 +1,12 @@
+<h1>Stop #<%=@stop.id%></h1>
+
+<p> Line <%= link_to @stop.line.name, line_path(@stop.line), :class=> "btn btn-default btn-xs" %> stops @
+<%= link_to @stop.station.name, line_path(@stop.station), :class=> "btn btn-default btn-xs" %></p>
+
+<p><%= link_to "Edit", edit_stop_path(@stop), :class => "btn btn-default" %></p>
+<p><%= link_to "Delete", stop_path(@stop),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"},
+                         :class => "btn btn-danger" %></p>
+
+<%= link_to "Stops", stops_path, :class=> "btn btn-default" %>

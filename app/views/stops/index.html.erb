@@ -1,0 +1,11 @@
+<h1>Stops</h1>
+
+<ul>
+<% @stops.each do |stop| %>
+  <li><%= link_to "Stop #" + stop.id.to_s, stop_path(stop), :class=> "btn btn-default btn-xs" %></li>
+<%end%>
+</ul>
+
+<%= link_to "New Stop", new_stop_path, :class=> "btn btn-default" %>
+<br>
+<%= link_to "Lines", lines_path, :class=> "btn btn-default" %>

@@ -1,0 +1,12 @@
+<h1>lines</h1>
+
+<ul>
+<% @lines.each do |line| %>
+  <li><%= link_to line.name, line_path(line), :class=> "btn btn-default btn-xs" %></li>
+<%end%>
+</ul>
+
+
+<%= link_to "New Line", new_line_path, :class=> "btn btn-default" %>
+<br>
+<%= link_to "Stations", stations_path, :class=> "btn btn-default" %>
