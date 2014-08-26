@@ -12,6 +12,7 @@ class Station < ActiveRecord::Base
     nodes = names.map { |name| {id: name} }
     edges = permutated_names.map {|name1, name2| {source: name1, target: name2}}
     alchemy_data = {nodes: nodes, edges: edges}
+    alchemy_data.to_json
   end
 
 end

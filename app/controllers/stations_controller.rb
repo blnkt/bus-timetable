@@ -1,8 +1,7 @@
 class StationsController < ApplicationController
   def index
     @stations = Station.all
-    stuff = Station.datamaker
-    @data = JSON.generate(stuff)
+    @data = Station.datamaker
   end
 
   def new

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'json'
 gem 'rails'
 gem 'pg'
 gem 'sass-rails'
@@ -9,7 +10,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-gem 'json'
 gem 'd3-rails'
 
 

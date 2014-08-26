@@ -8,9 +8,13 @@
 
 <div class="alchemy" id="alchemy"></div>
 <script type="text/javascript">
+
       var config = {
-          dataSource: {"nodes":[{"id":"hello"},{"id":"hi"},{"id":"stuff"},{"id":"butters"},{"id":"Downtown"},{"id":"Test"},{"id":"rose quarter"},{"id":"STAtION!"}],"edges":[{"source":"hello","target":"hi"},{"source":"hello","target":"stuff"},{"source":"hello","target":"butters"},{"source":"hello","target":"Downtown"},{"source":"hello","target":"Test"},{"source":"hello","target":"rose quarter"},{"source":"hello","target":"STAtION!"},{"source":"hi","target":"hello"},{"source":"hi","target":"stuff"},{"source":"hi","target":"butters"},{"source":"hi","target":"Downtown"},{"source":"hi","target":"Test"},{"source":"hi","target":"rose quarter"},{"source":"hi","target":"STAtION!"},{"source":"stuff","target":"hello"},{"source":"stuff","target":"hi"},{"source":"stuff","target":"butters"},{"source":"stuff","target":"Downtown"},{"source":"stuff","target":"Test"},{"source":"stuff","target":"rose quarter"},{"source":"stuff","target":"STAtION!"},{"source":"butters","target":"hello"},{"source":"butters","target":"hi"},{"source":"butters","target":"stuff"},{"source":"butters","target":"Downtown"},{"source":"butters","target":"Test"},{"source":"butters","target":"rose quarter"},{"source":"butters","target":"STAtION!"},{"source":"Downtown","target":"hello"},{"source":"Downtown","target":"hi"},{"source":"Downtown","target":"stuff"},{"source":"Downtown","target":"butters"},{"source":"Downtown","target":"Test"},{"source":"Downtown","target":"rose quarter"},{"source":"Downtown","target":"STAtION!"},{"source":"Test","target":"hello"},{"source":"Test","target":"hi"},{"source":"Test","target":"stuff"},{"source":"Test","target":"butters"},{"source":"Test","target":"Downtown"},{"source":"Test","target":"rose quarter"},{"source":"Test","target":"STAtION!"},{"source":"rose quarter","target":"hello"},{"source":"rose quarter","target":"hi"},{"source":"rose quarter","target":"stuff"},{"source":"rose quarter","target":"butters"},{"source":"rose quarter","target":"Downtown"},{"source":"rose quarter","target":"Test"},{"source":"rose quarter","target":"STAtION!"},{"source":"STAtION!","target":"hello"},{"source":"STAtION!","target":"hi"},{"source":"STAtION!","target":"stuff"},{"source":"STAtION!","target":"butters"},{"source":"STAtION!","target":"Downtown"},{"source":"STAtION!","target":"Test"},{"source":"STAtION!","target":"rose quarter"}]},
+          dataSource: <%= @data.html_safe%>,
+          graphHeight: function(){ return 400; },
+          graphWidth: function(){ return 400; },
           };
+
 
       alchemy.begin(config)
   </script>

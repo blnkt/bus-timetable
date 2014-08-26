@@ -1,5 +1,12 @@
 <h1>New Line</h1>
-
+<% if @line.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @line.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= render('form') %>
 
 <%= link_to "Lines", lines_path, :class=> "btn btn-default" %>
