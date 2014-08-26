@@ -14,7 +14,8 @@
         var config = {
             dataSource: <%= @data.html_safe%>,
             graphHeight: function(){ return 600; },
-            graphWidth: function(){ return 600; }
+            graphWidth: function(){ return 600; },
+            curvedEdges: function(){return true; },
             };
         alchemy.begin(config)
     </script>
