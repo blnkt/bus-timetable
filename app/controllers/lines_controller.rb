@@ -20,6 +20,7 @@ class LinesController < ApplicationController
 
   def show
     @line = Line.find(params[:id])
+    @line_data = @line.station_data
   end
 
   def edit
@@ -29,6 +30,7 @@ class LinesController < ApplicationController
   def update
     @line = Line.find(params[:id])
     if @line.update(line_params)
+      @line.station_ids = params[:line][:station_ids]
       flash[:notice] = "line updated."
       redirect_to line_path(@line)
     else

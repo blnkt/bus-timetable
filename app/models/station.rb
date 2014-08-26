@@ -3,14 +3,19 @@ class Station < ActiveRecord::Base
   has_many :lines, through: :stops
   validates :name, presence: true
 
-
-
   def self.datamaker
-    names=[]
-    Station.all.each {|station| names << station.name}
-    permutated_names = names.permutation(2).to_a
-    nodes = names.map { |name| {id: name} }
-    edges = permutated_names.map {|name1, name2| {source: name1, target: name2}}
+    station_names=[]
+    Station.all.each {|station| station_names << station.name}
+    nodes = station_names.map { |name| {id: name, caption: name} }
+
+    edges = []
+    line_stations = []
+    Line.all.each do |line|
+      line.stations.each do |station|
+        line_stations << station.name
+        line_stations.map.with_index {|name, i| edges << {source: name, target: line_stations[i+1]} if !line_stations[i+1].nil? }
+      end
+    end
     alchemy_data = {nodes: nodes, edges: edges}
     alchemy_data.to_json
   end

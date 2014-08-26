@@ -13,3 +13,16 @@
                          :class => "btn btn-danger" %></p>
 
 <%= link_to "Lines", lines_path, :class=> "btn btn-default" %>
+
+<div class="alchemy" id="alchemy"></div>
+<script type="text/javascript">
+
+      var config = {
+          dataSource: <%= @line_data.html_safe%>,
+          graphHeight: function(){ return 400; },
+          graphWidth: function(){ return 400; },
+          };
+
+
+      alchemy.begin(config)
+  </script>
