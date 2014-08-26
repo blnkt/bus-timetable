@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'json'
+gem 'd3-rails'
 
 
 group :development do

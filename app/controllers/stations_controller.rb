@@ -1,6 +1,8 @@
 class StationsController < ApplicationController
   def index
     @stations = Station.all
+    stuff = Station.datamaker
+    @data = JSON.generate(stuff)
   end
 
   def new
@@ -10,6 +12,7 @@ class StationsController < ApplicationController
   def create
     @station = Station.new(station_params)
     if @station.save
+      @station.line_ids = params[:station][:line_ids]
       flash[:notice] = "station created."
       redirect_to stations_path
     else
@@ -42,9 +45,13 @@ class StationsController < ApplicationController
     redirect_to stations_path
   end
 
+  def graph
+    render("stations/graph.html")
+  end
+
   private
   def station_params
-    params.require(:station).permit(:name)
+    params.require(:station).permit(:name, :line_id)
   end
 
 end
