@@ -1,28 +1,36 @@
-<h1><%=@line.name%> Line</h1>
+<h1><%=@line.name%> Bridge</h1>
+<div class="row">
+  <div class="col-md-2">
+  <ul>
+  <% @line.stations.each do |station| %>
+    <li><%= link_to station.name, station_path(station), :class=> "btn btn-default btn-xs" %></li><br>
+  <%end%>
+  </ul>
+  </div>
 
-<ul>
-<% @line.stations.each do |station| %>
-  <li><%= link_to station.name, station_path(station), :class=> "btn btn-default btn-xs" %></li>
-<%end%>
-</ul>
+  <div class="col-md-4">
+  <div class="alchemy" id="alchemy"></div>
+  <script type="text/javascript">
 
-<p><%= link_to "Edit", edit_line_path(@line), :class => "btn btn-default" %></p>
+        var config = {
+            dataSource: <%= @line_data.html_safe%>,
+            graphHeight: function(){ return 300; },
+            graphWidth: function(){ return 400; },
+            };
+
+
+        alchemy.begin(config)
+    </script>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-1">
+  <p><%= link_to "Edit", edit_line_path(@line), :class => "btn btn-default" %></p>
+</div>
+  <div class="col-md-1">
 <p><%= link_to "Delete", line_path(@line),
                          :data => {:confirm => "You sure?",
                                    :method => "delete"},
                          :class => "btn btn-danger" %></p>
-
-<%= link_to "Lines", lines_path, :class=> "btn btn-default" %>
-
-<div class="alchemy" id="alchemy"></div>
-<script type="text/javascript">
-
-      var config = {
-          dataSource: <%= @line_data.html_safe%>,
-          graphHeight: function(){ return 400; },
-          graphWidth: function(){ return 400; },
-          };
-
-
-      alchemy.begin(config)
-  </script>
+                         </div>
+</div>

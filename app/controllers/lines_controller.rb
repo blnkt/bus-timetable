@@ -1,6 +1,8 @@
 class LinesController < ApplicationController
   def index
     @lines = Line.all
+    @data = Station.datamaker
+
   end
 
   def new
@@ -11,7 +13,7 @@ class LinesController < ApplicationController
     @line = Line.new(line_params)
     if @line.save
       @line.station_ids = params[:line][:station_ids]
-      flash[:notice] = "line created."
+      flash[:notice] = "Bridge created."
       redirect_to lines_path
     else
       render 'new'
@@ -31,7 +33,7 @@ class LinesController < ApplicationController
     @line = Line.find(params[:id])
     if @line.update(line_params)
       @line.station_ids = params[:line][:station_ids]
-      flash[:notice] = "line updated."
+      flash[:notice] = "Bridge updated."
       redirect_to line_path(@line)
     else
       render 'edit'
@@ -41,7 +43,7 @@ class LinesController < ApplicationController
   def destroy
     @line = Line.find(params[:id])
     @line.destroy
-    flash[:notice] = "line deleted."
+    flash[:notice] = "Bridge deleted."
     redirect_to lines_path
   end
 

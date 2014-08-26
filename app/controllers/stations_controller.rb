@@ -12,7 +12,7 @@ class StationsController < ApplicationController
     @station = Station.new(station_params)
     if @station.save
       @station.line_ids = params[:station][:line_ids]
-      flash[:notice] = "station created."
+      flash[:notice] = "Gate created."
       redirect_to stations_path
     else
       render 'new'
@@ -31,7 +31,7 @@ class StationsController < ApplicationController
     @station = Station.find(params[:id])
     if @station.update(station_params)
       @station.line_ids = params[:station][:line_ids]
-      flash[:notice] = "station updated."
+      flash[:notice] = "Gate updated."
       redirect_to station_path(@station)
     else
       render 'edit'
@@ -41,7 +41,7 @@ class StationsController < ApplicationController
   def destroy
     @station = Station.find(params[:id])
     @station.destroy
-    flash[:notice] = "station deleted."
+    flash[:notice] = "Gate deleted."
     redirect_to stations_path
   end
 

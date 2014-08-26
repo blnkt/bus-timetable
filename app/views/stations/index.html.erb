@@ -1,22 +1,22 @@
-<h1>Stations</h1>
+<h1>Star Gates</h1>
+<div class="row">
+<div class= "col-md-2">
+  <ul>
+  <% @stations.each do |station| %>
+    <li><%= link_to station.name, station_path(station), class: "btn btn-default btn-xs" %></li><br>
+  <%end%>
+  </ul>
+</div>
+<div class= "col-md-6">
+  <div class="alchemy" id="alchemy"></div>
+  <script type="text/javascript">
 
-<ul>
-<% @stations.each do |station| %>
-  <li><%= link_to station.name, station_path(station), class: "btn btn-default btn-xs" %></li>
-<%end%>
-</ul>
-
-<div class="alchemy" id="alchemy"></div>
-<script type="text/javascript">
-
-      var config = {
-          dataSource: <%= @data.html_safe%>,
-          graphHeight: function(){ return 400; },
-          graphWidth: function(){ return 800; },
-          };
-      alchemy.begin(config)
-  </script>
-
-<%= link_to "New station", new_station_path, class: "btn btn-default" %>
-<br>
-<%= link_to "Lines", lines_path, :class=> "btn btn-default" %>
+        var config = {
+            dataSource: <%= @data.html_safe%>,
+            graphHeight: function(){ return 600; },
+            graphWidth: function(){ return 600; }
+            };
+        alchemy.begin(config)
+    </script>
+  </div>
+</div>

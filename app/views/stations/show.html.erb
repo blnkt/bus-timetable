@@ -1,8 +1,8 @@
-<h1><%=@station.name%> Station</h1>
+<h1><%=@station.name%> Gate</h1>
 
 <ul>
 <% @station.lines.each do |line| %>
-  <li><%= link_to line.name, line_path(line), :class=> "btn btn-default btn-xs" %></li>
+  <li><%= link_to line.name, line_path(line), :class=> "btn btn-default btn-xs" %></li><br>
 <%end%>
 </ul>
 
